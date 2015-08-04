@@ -39,8 +39,8 @@ class Tgroupsecfieldrelation(models.Model):
 
 
 class Tseclass(models.Model):
-    idtseclass = models.IntegerField(db_column='idTSeclass',primary_key=True) # Field name made lowercase.
-    seclass_id = models.IntegerField(unique=True)
+    #idtseclass = models.IntegerField(db_column='idTSeclass',primary_key=True) # Field name made lowercase.
+    seclass_id = models.IntegerField(unique=True, primary_key=True)
     parent_secl_id = models.IntegerField(blank=True, null=True)
     seclass_name = models.CharField(max_length=64, blank=True)
     gen_time = models.DateTimeField(blank=True, null=True)
@@ -73,8 +73,7 @@ class Tmeta(models.Model):
         return self.object_name
 class Tpolicy(models.Model):
     idtusersecfieldrelation = models.IntegerField(db_column='idTUserSecfieldRelation', primary_key=True) # Field name made lowercase.
-    secfield = models.CharField(max_length=11, blank=True)
-    #secfield = models.ForeignKey('Tsecfield')
+    secfield_id = models.IntegerField(max_length=11, unique=True)
     seclass_id = models.CharField(max_length=64, blank=True)
     class Meta:
         managed = False
@@ -127,7 +126,7 @@ class Tusergrouprelation(models.Model):
 class Tusersecfieldrelation(models.Model):
     idtusersecfieldrelation = models.IntegerField(db_column='idTUserSecfieldRelation', primary_key=True) # Field name made lowercase.
     tu_id = models.IntegerField(unique=True)
-    secfield_id = models.IntegerField(max_length=64, blank=True)
+    secfield_id = models.CharField(max_length=64, blank=True)
     class Meta:
         managed = False
         db_table = 'TUserSecfieldRelation'

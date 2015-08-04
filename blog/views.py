@@ -26,7 +26,7 @@ def main(req):
 
 def test(req):
     uname = req.GET['id'].encode('utf-8')
-    a = Tseclass.objects.filter(parent_secl_id=None)
+    a = Tseclass.objects.filter(parent_secl_id=0)
     det={}
     for i in range(a.count()):
         seclassid = a.values()[i]['seclass_id']
@@ -122,7 +122,7 @@ def showsecfield(req):
             secfield_names.append(Tsecfield.objects.get(secfield_id=id).secfield_name.encode('utf-8'))
         info = [id,name,secfield_names]
         secfieldinfo[id]=info
-    return render_to_response('show_secfield.html',{'secfieldinfo':secfieldinfo})
+    return render_to_response('showuserfield.html',{'secfieldinfo':secfieldinfo})
 
 def top(req):
     name = req.GET['id']
@@ -139,7 +139,7 @@ def login(req):
         if nm:
             print name,passwd
             return render_to_response('MyFrame.html', {'name':name})
-    return render_to_response('login.html', {})
+    return render_to_response('login.html', {'document_root':'~/sun/django/mac/blog/templates/images'})
 
 def metaadd(req):
     '''

@@ -11,6 +11,7 @@
     {% for field in mf %}
         <div class="form-group col-sm-10">
             {{ field.label }}:{{ field }}
+            {{ field.erros }}
         </div>
     {% endfor %}
     <div class="form-group">

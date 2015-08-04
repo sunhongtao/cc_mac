@@ -2,23 +2,23 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>范畴管理</title>
+    <title>范畴控制</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>添加范畴</h1>
+<h1>{{ head }}</h1>
 <form method="post" enctype="multipart/form-data">
     {% for field in af %}
         <div class="form-group col-sm-10">
-{#        <label class="col-sm-2 control-label"> </label>#}
             {{ field.label }}:{{ field }}
         </div>
     {% endfor %}
+
     <div class="form-group">
         <label class="col-sm-2 control-label"> </label>
         <div class="col-sm-offset-1 col-sm-6">
             <button type="submit" class="btn btn-primary">提交</button>
-            <a href="/" type="submit" class="btn btn-success" target="_parent">取消</a>
+            <a href="/user_field" type="submit" class="btn btn-success">取消</a>
         </div>
     </div>
 </form>
